@@ -8,8 +8,6 @@
 
 using namespace std;
 
-void sortMenu(vector<Film>& films);
-
 int main()
 {
     setlocale(LC_ALL, "rus");
@@ -22,7 +20,8 @@ int main()
         cout << "1 - Создать массив данных" << endl;
         cout << "2 - Считать данные из файла" << endl;
         cout << "3 - Записать в файл" << endl;
-        cout << "4 - Выход" << endl;
+        cout << "4 - Удалить фильм" << endl;
+        cout << "5 - Выход" << endl;
         string n_line;
         getline(cin, n_line);
         int n = stoi(n_line);
@@ -64,6 +63,11 @@ int main()
             break;
         }
         case 4: {
+            deleteMenu(films);
+            break;
+        }
+
+        case 5: {
             a = false;
             break;
         }

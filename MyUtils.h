@@ -5,6 +5,7 @@
 
 #include <string>
 #include <film.h>
+#include <MenuUtils.cpp>
 
 void count_average_rating(Film& film);
 void print(Film& film);
@@ -19,5 +20,8 @@ bool compareByYear(const Film& a, const Film& b);
 bool compareByCountry(const Film& a, const Film& b);
 bool compareByAverageRatingAscending(const Film& a, const Film& b);
 bool compareByAverageRatingDescending(const Film& a, const Film& b);
+void delete_film(vector<Film>& films, int position);
+void sortMenu(vector<Film>& films);
+void deleteMenu(vector<Film>& films);
 
 #endif

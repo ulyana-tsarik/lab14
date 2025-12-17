@@ -2,10 +2,10 @@
 #include <vector>
 #include <cstdlib>
 #include <algorithm> 
-#include<string>
-#include<windows.h>
-#include<Film.h>
-#include<MyUtils.h>
+#include <string>
+#include <windows.h>
+#include <Film.h>
+#include <MyUtils.h>
 
 using namespace std;
 
@@ -49,3 +49,12 @@ void sortMenu(vector<Film>& films) {
     cout << "Фильмы отсортированы." << endl;
     print(films);
 }
+
+void deleteMenu(vector<Film>& films) {
+    string position_line;
+    getline(cin, position_line);
+    cout << endl;
+    int position = stoi(position_line);
+    delete_film(films, position);
+}
+
