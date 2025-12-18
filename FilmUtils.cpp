@@ -49,7 +49,8 @@ bool compareByCountry(const Film& a, const Film& b) { return a.country < b.count
 bool compareByAverageRatingAscending(const Film& a, const Film& b) { return a.average_rating < b.average_rating; }
 bool compareByAverageRatingDescending(const Film& a, const Film& b) { return a.average_rating > b.average_rating; }
 
-void delete_film(vector<Film>& films, int position)
+vector<Film> deleteFilm(vector<Film> films, int position)
 {
     films.erase(films.begin() + position - 1);
+    return films;
 }

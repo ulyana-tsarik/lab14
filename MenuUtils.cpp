@@ -1,23 +1,25 @@
+// MenuUtils.cpp
+
 #include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <algorithm> 
-#include <string>
-#include <windows.h>
-#include <Film.h>
-#include <MyUtils.h>
+#include<string>
+#include<windows.h>
+#include<Film.h>
+#include<MyUtils.h>
 
 using namespace std;
 
 void sortMenu(vector<Film>& films) {
-    cout << "\nВыберите сортировку:\n"
-        << "1. Название A-Z\n"
-        << "2. Название Z-A\n"
+    cout << "\nСортировать фильмы:\n"
+        << "1. Возрастание A-Z\n"
+        << "2. Убывание Z-A\n"
         << "3. Год\n"
         << "4. Страна\n"
-        << "5. Средняя оценка 1-10\n"
-        << "6. Средняя оценка 10-1\n"
-        << "Выберите действие: ";
+        << "5. Рейтинг по возрастанию 1-10\n"
+        << "6. Рейтинг по убыванию 10-1\n"
+        << "Введите номер действия: ";
 
     int choice;
     cin >> choice;
@@ -43,18 +45,9 @@ void sortMenu(vector<Film>& films) {
         sort(films.begin(), films.end(), compareByAverageRatingDescending);
         break;
     default:
-        cout << "Некорректный выбор." << endl;
+        cout << "Такого действия нет. Повторите ввод!\n" << endl;
         return;
     }
-    cout << "Фильмы отсортированы." << endl;
+    cout << "\nФильмы отсортированы." << endl;
     print(films);
 }
-
-void deleteMenu(vector<Film>& films) {
-    string position_line;
-    getline(cin, position_line);
-    cout << endl;
-    int position = stoi(position_line);
-    delete_film(films, position);
-}
-

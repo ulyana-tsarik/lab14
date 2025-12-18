@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <vector>
 
 using namespace std;
 
@@ -92,5 +91,6 @@ vector<Film> readFilmsFromFileAndCout(string name)
     print(films);
 
     H.close();
+
     return films;
 }

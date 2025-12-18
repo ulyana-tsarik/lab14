@@ -8,6 +8,8 @@
 
 using namespace std;
 
+void sortMenu(vector<Film>& films);
+
 int main()
 {
     setlocale(LC_ALL, "rus");
@@ -47,8 +49,8 @@ int main()
             cout << "Введите имя файла: ";
             getline(cin, name);
             cout << endl;
-            
-           films = readFilmsFromFileAndCout(name);
+
+            films = readFilmsFromFileAndCout(name);
 
             break;
         }
@@ -62,11 +64,21 @@ int main()
 
             break;
         }
-        case 4: {
-            deleteMenu(films);
+        case 4:
+        {
+            cout << "Введите позицию фильма: ";
+            string position_line;
+            getline(cin, position_line);
+            cout << endl;
+
+            int position = stoi(position_line);
+            films = deleteFilm(films, position);
+
+            cout << "\n>>> Остались фильмы <<<";
+            print(films);
+
             break;
         }
-
         case 5: {
             a = false;
             break;
