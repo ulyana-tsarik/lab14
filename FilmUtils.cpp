@@ -3,6 +3,7 @@
 #include <film.h>
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -42,6 +43,16 @@ void print(vector<Film>& films)
     }
 }
 
+void searchFilmByCountry(vector<Film>& films, string country)
+{
+    cout << endl << ">>>> Фильмы <<<<" << endl;
+    cout << "Страна: " << country << endl;
+    for (int i = 0; i < films.size(); i++)
+        if (films[i].country.find(country) != string::npos) {
+            print(films[i]);
+        }
+}
+
 bool compareByNameAscending(const Film& a, const Film& b) { return a.name < b.name; }
 bool compareByNameDescending(const Film& a, const Film& b) { return a.name > b.name; }
 bool compareByYear(const Film& a, const Film& b) { return a.year < b.year; }
@@ -53,4 +64,26 @@ vector<Film> deleteFilm(vector<Film> films, int position)
 {
     films.erase(films.begin() + position - 1);
     return films;
+}
+
+vector<Film> inputFilm() {
+    Film film;
+    cout << "Введите название фильма: ";
+    getline(cin, film.name);
+
+    cout << "Введите год выхода: ";
+    cin >> film.year;
+    cin.ignore();
+
+    cout << "Введите страну производства: ";
+    getline(cin, film.country);
+
+    film.rating.resize(5);
+    cout << "Введите 5 оценок через пробел: ";
+    for (int i = 0; i < 5; i++)
+        cin >> film.rating[i];
+    cin.ignore();
+
+    count_average_rating(film);
+    return film;
 }

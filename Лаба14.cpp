@@ -23,7 +23,9 @@ int main()
         cout << "2 - Считать данные из файла" << endl;
         cout << "3 - Записать в файл" << endl;
         cout << "4 - Удалить фильм" << endl;
-        cout << "5 - Выход" << endl;
+        cout << "5 - Добавить фильм" << endl;
+        cout << "6 - Поиск по стране" << endl;
+        cout << "7 - Выход" << endl;
         string n_line;
         getline(cin, n_line);
         int n = stoi(n_line);
@@ -31,6 +33,7 @@ int main()
         {
         case 0: {
             sortMenu(films);
+
             break;
         }
         case 1: {
@@ -79,7 +82,27 @@ int main()
 
             break;
         }
-        case 5: {
+        case 5:
+        {
+            cout << "Добавить фильм: ";
+            Film inputFilm();
+            void searchFilmByCountry(vector<Film>&films, string country);
+
+            break;
+
+        }
+
+        case 6:
+        {
+            string country;
+            cout << "Введите часть страны для поиска: ";
+            getline(cin, country);
+            searchFilmByCountry(films, country);
+
+            break;
+        }
+
+        case 7: {
             a = false;
             break;
         }
