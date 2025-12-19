@@ -5,6 +5,7 @@
 #include <vector>
 #include <Film.h>
 #include <MyUtils.h>
+#include<windows.h>
 
 using namespace std;
 
@@ -13,9 +14,14 @@ void sortMenu(vector<Film>& films);
 int main()
 {
     setlocale(LC_ALL, "rus");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
     bool a = true;
     vector<Film> films;
+    films = creatFilms();
+    print(films);
+    cout << endl;
 
     while (a) {
         cout << "0 - Сортировать" << endl;
@@ -84,9 +90,11 @@ int main()
         }
         case 5:
         {
-            cout << "Добавить фильм: ";
-            Film inputFilm();
-            void searchFilmByCountry(vector<Film>&films, string country);
+            cout << "\nДобавить фильм: \n";
+            films = addFilm(films);
+
+            cout << endl;
+            print(films);
 
             break;
 
@@ -95,8 +103,9 @@ int main()
         case 6:
         {
             string country;
-            cout << "Введите часть страны для поиска: ";
+            cout << "\nВведите часть страны для поиска: ";
             getline(cin, country);
+
             searchFilmByCountry(films, country);
 
             break;

@@ -24,6 +24,7 @@ bool compareByAverageRatingAscending(const Film& a, const Film& b);
 bool compareByAverageRatingDescending(const Film& a, const Film& b);
 vector<Film> deleteFilm(vector<Film> films, int position);
 void searchFilmByCountry(vector<Film>& films, string country);
-vector<Film> inputFilm(vector<Film> films, string name);
+vector<Film> addFilm(vector<Film> films);
+vector<Film> creatFilms();
 
 #endif
