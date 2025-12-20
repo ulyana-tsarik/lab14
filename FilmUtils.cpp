@@ -66,24 +66,62 @@ vector<Film> deleteFilm(vector<Film> films, int position)
     return films;
 }
 
-vector<Film> inputFilm() {
+vector<Film> addFilm(vector<Film> films)
+{
     Film film;
     cout << "Введите название фильма: ";
     getline(cin, film.name);
 
-    cout << "Введите год выхода: ";
+    cout << "Введите год выхода фильма: ";
     cin >> film.year;
     cin.ignore();
 
-    cout << "Введите страну производства: ";
+    cout << "Введите страну производства фильма: ";
     getline(cin, film.country);
 
     film.rating.resize(5);
-    cout << "Введите 5 оценок через пробел: ";
+    cout << "Введите оценки (массив из пяти элементов, например, 6 5 7 6 8) фильма: ";
     for (int i = 0; i < 5; i++)
         cin >> film.rating[i];
     cin.ignore();
-
     count_average_rating(film);
-    return film;
+
+    films.push_back(film);
+
+    return films;
+}
+
+vector<Film> creatFilms()
+{
+    vector<Film> films;
+    Film film;
+    film.name = "1+1";
+    film.year = 2011;
+    film.country = "Франция";
+    film.rating = { 5, 6, 8, 8, 9 };
+    count_average_rating(film);
+    films.push_back(film);
+
+    film.name = "Джентельмены";
+    film.year = 2019;
+    film.country = "США";
+    film.rating = { 7, 6, 8, 9, 9 };
+    count_average_rating(film);
+    films.push_back(film);
+
+    film.name = "Брат";
+    film.year = 1997;
+    film.country = "Россия";
+    film.rating = { 7, 9, 8, 8, 8 };
+    count_average_rating(film);
+    films.push_back(film);
+
+    film.name = "Фишер";
+    film.year = 2023;
+    film.country = "Россия";
+    film.rating = { 6, 5, 8, 9, 7 };
+    count_average_rating(film);
+    films.push_back(film);
+
+    return films;
 }
