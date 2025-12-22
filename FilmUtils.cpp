@@ -60,13 +60,12 @@ bool compareByCountry(const Film& a, const Film& b) { return a.country < b.count
 bool compareByAverageRatingAscending(const Film& a, const Film& b) { return a.average_rating < b.average_rating; }
 bool compareByAverageRatingDescending(const Film& a, const Film& b) { return a.average_rating > b.average_rating; }
 
-vector<Film> deleteFilm(vector<Film> films, int position)
+void deleteFilm(vector<Film>& films, int position)
 {
     films.erase(films.begin() + position - 1);
-    return films;
 }
 
-vector<Film> addFilm(vector<Film> films)
+void addFilm(vector<Film>& films)
 {
     Film film;
     cout << "Введите название фильма: ";
@@ -87,13 +86,10 @@ vector<Film> addFilm(vector<Film> films)
     count_average_rating(film);
 
     films.push_back(film);
-
-    return films;
 }
 
-vector<Film> creatFilms()
+void creatFilms(vector<Film>& films)
 {
-    vector<Film> films;
     Film film;
     film.name = "1+1";
     film.year = 2011;
@@ -123,5 +119,10 @@ vector<Film> creatFilms()
     count_average_rating(film);
     films.push_back(film);
 
-    return films;
+    film.name = "Один дома";
+    film.year = 1990;
+    film.country = "США";
+    film.rating = { 6, 5, 8, 9, 7 };
+    count_average_rating(film);
+    films.push_back(film);
 }

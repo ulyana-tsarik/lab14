@@ -22,9 +22,9 @@ bool compareByYear(const Film& a, const Film& b);
 bool compareByCountry(const Film& a, const Film& b);
 bool compareByAverageRatingAscending(const Film& a, const Film& b);
 bool compareByAverageRatingDescending(const Film& a, const Film& b);
-vector<Film> deleteFilm(vector<Film> films, int position);
+void deleteFilm(vector<Film>& films, int position);
 void searchFilmByCountry(vector<Film>& films, string country);
-vector<Film> addFilm(vector<Film> films);
-vector<Film> creatFilms();
+void addFilm(vector<Film>& films);
+void creatFilms(vector<Film>& films);
 
 #endif

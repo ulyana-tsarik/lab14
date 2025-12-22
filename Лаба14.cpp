@@ -19,7 +19,7 @@ int main()
 
     bool a = true;
     vector<Film> films;
-    films = creatFilms();
+    creatFilms(films);
     print(films);
     cout << endl;
 
@@ -81,7 +81,7 @@ int main()
             cout << endl;
 
             int position = stoi(position_line);
-            films = deleteFilm(films, position);
+            deleteFilm(films, position);
 
             cout << "\n>>> Остались фильмы <<<";
             print(films);
@@ -91,7 +91,7 @@ int main()
         case 5:
         {
             cout << "\nДобавить фильм: \n";
-            films = addFilm(films);
+            addFilm(films);
 
             cout << endl;
             print(films);
